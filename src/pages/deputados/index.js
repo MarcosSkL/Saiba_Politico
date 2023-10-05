@@ -9,10 +9,10 @@ import { IoSearch } from 'react-icons/Io5'
 
 const ListaDeputados = () => {
 
-    const [deputados, setDeputados] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
-    const [search, setSearch] = useState("")
-    const [order, setOrder] = useState("A-Z")
+    const [deputados, setDeputados] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [search, setSearch] = useState("");
+    const [order, setOrder] = useState("A-Z");
 
 
     const searchLowerCase = search.toLowerCase(); //Buscar letras caixa alto e baixa
@@ -30,12 +30,12 @@ const ListaDeputados = () => {
 
     useEffect(() => {
 
-        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados'
-        const URL = `${ENDPOINT}?pagina=${currentPage}&itens=5&ordem=ASC&ordenarPor=nome`
+        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados';
+        const URL = `${ENDPOINT}?pagina=${currentPage}&itens=5&ordem=ASC&ordenarPor=nome`;
         fetch(URL)
             .then((response) => response.json())
             .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
-    }, [currentPage])
+    }, [currentPage]);
 
     useEffect(() => {
         const intersectionObserver = new IntersectionObserver((entries) => {
@@ -48,7 +48,7 @@ const ListaDeputados = () => {
         intersectionObserver.observe(document.querySelector('#sentinela'));
 
         return () => intersectionObserver.disconnect();
-    }, [])
+    }, []);
 
     // Cria uma função para alterar a ordem quando o usuário clicar em um dos itens do dropdown
     const handleOrderChange = (newOrder) => {

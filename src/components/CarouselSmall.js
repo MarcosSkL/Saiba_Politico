@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,17 +6,17 @@ import Link from "next/link";
 const CarouselSmall = () => {
 
 
-    const [deputados, setDeputados] = useState([])
- 
+    const [deputados, setDeputados] = useState([]);
 
-    React.useEffect(() => {
 
-        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados'
-        const URL = `${ENDPOINT}?&itens=100&ordem=ASC&ordenarPor=nome`
+    useEffect(() => {
+
+        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados';
+        const URL = `${ENDPOINT}?&itens=100&ordem=ASC&ordenarPor=nome`;
         fetch(URL)
             .then((response) => response.json())
-            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
-    }, [])
+            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]));
+    }, []);
 
 
     const settings = {
@@ -36,7 +35,7 @@ const CarouselSmall = () => {
                 {deputados.map((item) => (
                     <div key={item.id} className="p-2">
                         <Link href={'deputados/' + item.id}>
-                        <Image priority src={item.urlFoto} width={1920} height={1200} alt={"Background " + item.nome} className="rounded-lg shadow-2xl shadow-black transition duration-300 ease-in-out hover:scale-110" />
+                            <Image priority src={item.urlFoto} width={1920} height={1200} alt={"Background " + item.nome} className="rounded-lg shadow-2xl shadow-black transition duration-300 ease-in-out hover:scale-110" />
                         </Link>
                     </div>
                 ))}

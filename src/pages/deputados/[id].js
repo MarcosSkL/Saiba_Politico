@@ -5,6 +5,7 @@ import Chart from 'react-google-charts'
 import Charts from "chart.js";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
 
 const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
 
@@ -253,11 +254,14 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
 
   return (
     <>
-    <Header />
-      <div className='pt-5'>
+      <Header />
+      <div className='pt-2'>
         <Container>
 
           <Row>
+            <Link href='/deputados'>
+              <button className='text-center rounded-lg px-4 py-2 mb-2 bg-sky-500 hover:bg-sky-400 text-white font-bold text-lg'>Voltar</button>
+            </Link>
             <h3 className='text-center p-2 text-white bg-blue-700 bg-opacity-90 rounded-3xl'>Informações do Deputado</h3>
           </Row>
           <Row className='md:px-32 sm:px-1'>
@@ -307,6 +311,9 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
                   </tbody>
                 </table>
               </div>
+              <Link href='/deputados'>
+                <button className='text-center rounded-lg px-4 py-2 m-4 bg-sky-500 hover:bg-sky-400 text-white font-bold text-lg'>Voltar</button>
+              </Link>
 
             </Col>
             <Col md={8} className='pt-5 bg text-white'>
@@ -341,7 +348,6 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
                   </div>
                 </div>
               </div>
-
             </Col>
           </Row>
         </Container>
