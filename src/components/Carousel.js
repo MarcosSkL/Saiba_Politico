@@ -1,22 +1,21 @@
-import axios from "axios";
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import apiDeputados from "../services/apiDeputados";
+
 
 const Carousel = () => {
 
-    const [deputados, setDeputados] = useState([])
-    
+    const [deputados, setDeputados] = useState([]);
 
-    React.useEffect(() => {
 
-        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/partidos'
-        const URL = `${ENDPOINT}?itens=20&ordem=ASC&ordenarPor=sigla`
+    useEffect(() => {
+
+        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/partidos';
+        const URL = `${ENDPOINT}?itens=20&ordem=ASC&ordenarPor=sigla`;
         fetch(URL)
             .then((response) => response.json())
-            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
+            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]));
     }, [])
 
     const settings = {
@@ -28,7 +27,7 @@ const Carousel = () => {
         speed: 800,
         slidesToShow: 1,
         slidesToScroll: 1,
-      
+
         appendDots: (dots) => (
             <div
                 style={{
@@ -46,7 +45,7 @@ const Carousel = () => {
     };
     return (
         <div className="p-4">
-           
+
             <Slider {...settings}>
                 {deputados.map((item) => (
                     <div key={item.id} className="p-2">

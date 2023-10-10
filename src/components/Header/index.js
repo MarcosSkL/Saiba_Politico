@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Logo from '../../public/Logo.png'
+import Logo from '../../../public/Logo.png'
 import { IoSearch, IoMenu } from 'react-icons/Io5'
 import Image from 'next/image'
 import { Offcanvas } from 'react-bootstrap'
