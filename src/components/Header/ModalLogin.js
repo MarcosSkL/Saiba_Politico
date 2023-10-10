@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { IoLogInSharp } from 'react-icons/Io5';
+import { IoLogInSharp } from 'react-icons/io5';
 
 
 const ModalLogin = () => {
