@@ -49,7 +49,8 @@ const Carousel = () => {
             <Slider {...settings}>
                 {deputados.map((item) => (
                     <div key={item.id} className="p-2">
-                        <Image src={item.urlLogo} width={600} height={600} alt={"Background " + item.nome} className="rounded-lg shadow-lg h-screen w-full object-fill" />
+                        
+                        {/*add imagens de Noticias*/}
                         <div className='absolute bottom-[80px] text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-full'>
                             <h2 className='font-bold text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl mb-3'>{item.nome}</h2>
                             <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.sigla}</p>
