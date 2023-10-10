@@ -12,8 +12,6 @@ const ListaDeputados = () => {
     const [deputados, setDeputados] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
-    const [order, setOrder] = useState("A-Z");
-
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSearchChange = (newSearch) => {
@@ -22,18 +20,9 @@ const ListaDeputados = () => {
         setCurrentPage(1); // Começa da primeira pagina
     };
 
-
     const searchLowerCase = search.toLowerCase(); //Buscar letras caixa alto e baixa
     const deputs = deputados
         .filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
-        .sort((a, b) => {
-            // Ordena os deputados de acordo com a ordem atual
-            if (order === "A-Z") {
-                return a.nome.localeCompare(b.nome); // Compara os nomes em ordem crescente
-            } else {
-                return b.nome.localeCompare(a.nome); // Compara os nomes em ordem decrescente
-            }
-        });
 
 
     useEffect(() => {
@@ -41,7 +30,7 @@ const ListaDeputados = () => {
         if (!isLoading) {
 
             const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados';
-            const URL = `${ENDPOINT}?pagina=${currentPage}&itens=5&ordem=ASC&ordenarPor=nome`;
+            const URL = `${ENDPOINT}?pagina=${currentPage}&itens=10&ordem=ASC&ordenarPor=nome`;
 
             setIsLoading(true)
 
@@ -67,11 +56,6 @@ const ListaDeputados = () => {
         return () => intersectionObserver.disconnect();
     }, [isLoading]);
 
-    // Cria uma função para alterar a ordem quando o usuário clicar em um dos itens do dropdown
-    const handleOrderChange = (newOrder) => {
-        setOrder(newOrder);
-    };
-
     return (
         <>
 
@@ -87,18 +71,8 @@ const ListaDeputados = () => {
                     placeholder="Procurar"
                 />
             </div>
-            <div className='pt-2 pb-3 text-center'>
-                <Dropdown as={ButtonGroup} className='bg-white h-9'>
-                    <Button variant="transparent"><span className='text-[15px]'>Letras</span></Button>
-                    <Dropdown.Toggle split variant="success" id="dropdown-custom-1" />
-                    <Dropdown.Menu className="bg-light">
-                        <Dropdown.Item onClick={() => handleOrderChange("A-Z")}>A-Z</Dropdown.Item>
-                        <Dropdown.Item onClick={() => handleOrderChange("Z-A")}>Z-A</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </div>
-            <Container>
 
+            <Container className='pt-4'>
 
                 <Row md={5}>
                     {deputs.map(item => (
