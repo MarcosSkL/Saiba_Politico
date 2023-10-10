@@ -13,6 +13,7 @@ const ListaDeputados = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    
 
     const handleSearchChange = (newSearch) => {
         setSearch(newSearch);
@@ -21,8 +22,7 @@ const ListaDeputados = () => {
     };
 
     const searchLowerCase = search.toLowerCase(); //Buscar letras caixa alto e baixa
-    const deputs = deputados
-        .filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
+    const deputs = deputados.filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
 
 
     useEffect(() => {
