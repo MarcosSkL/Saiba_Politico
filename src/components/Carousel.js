@@ -6,23 +6,23 @@ import Link from "next/link";
 
 const Carousel = () => {
 
-    const [deputados, setDeputados] = useState([]);
+    const [news, setNews] = useState([]);
 
 
     useEffect(() => {
 
-        const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/partidos';
-        const URL = `${ENDPOINT}?itens=20&ordem=ASC&ordenarPor=sigla`;
+        const ENDPOINT = 'https://newsapi.org/v2';
+        const URL = `${ENDPOINT}/everything?q=bitcoin&apiKey=f8b2ac41580f4c54b3a5e20de44fb2a3`;
         fetch(URL)
             .then((response) => response.json())
-            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]));
+            .then((newNews) => setNews((prevNews) => [...prevNews, ...newNews.articles]));
     }, [])
 
     const settings = {
         className: "center",
         centerPadding: "100px",
         centerMode: true,
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 800,
         slidesToShow: 1,
@@ -47,17 +47,20 @@ const Carousel = () => {
         <div className="p-4">
 
             <Slider {...settings}>
-                {deputados.map((item) => (
+                {news.map((item) => (
                     <div key={item.id} className="p-2">
-                        
-                        {/*add imagens de Noticias*/}
-                        <div className='absolute bottom-[80px] text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-full'>
-                            <h2 className='font-bold text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl mb-3'>{item.nome}</h2>
-                            <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.sigla}</p>
-                            <div className=' gap-5 items-center hidden sm:flex'>
-                                <Link href={'/deputados/' + item.id}>
-                                    <button aria-label='Detalhes' className='px-[20px] bg-[#3e3b44b3] min-h-[4px] min-w-[144px] py-[12px] rounded-[200px] text-slate-50 hover:bg-gray-400 font-semibold'>Detalhes</button>
-                                </Link>
+                        <div className='text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen h-screen'>
+                            <img
+                                src={item.urlToImage}
+                                width={1920}
+                                height={1200}
+                                alt={item.title}
+                                className="object-cover rounded-lg shadow-2xl shadow-black"
+                            />
+                            <div className='absolute bottom-[80px] text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen'>
+                                <h2 className='font-bold text-xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl me-60'>{item.title}</h2>
+                                <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.author}</p>
+                                <p className="sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg me-60 p-1 bg-black bg-opacity-50 rounded-xl">{item.description}</p>
                             </div>
                         </div>
                     </div>

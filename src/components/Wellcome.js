@@ -8,8 +8,8 @@ const Wellcome = () => {
                 <h1 className="text-8xl mb-10 py-5 mx-[18rem] shadow-2xl rounded-full shadow-zinc-950 text-center font-extrabold text-gray-800 bg-gradient-to-r from-lime-500 to-cyan-500 ">
                     Bem vindo a Saiba Politico
                 </h1>
-                <h2 className="text-2xl font-mono font-semibold pb-11 text-gray-950 text-center">
-                    <span className='shadow-lg'>Seu portal de Informaçõessobre<br />
+                <h2 className="text-3xl pb-11 text-gray-50 text-center">
+                    <span className='shadow-2xl shadow-black font-extrabold'>Seu portal de Informações sobre<br />
                     sobre os Deputados da Câmara Eleitoral</span>
                 </h2>
                 <div className="text-center">
