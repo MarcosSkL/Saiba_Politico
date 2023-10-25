@@ -15,11 +15,17 @@ const Carousel = () => {
         const URL = `${ENDPOINT}/everything?q=brasil&language=pt&sortBy=publishedAt&apiKey=f8b2ac41580f4c54b3a5e20de44fb2a3`;
         fetch(URL)
             .then((response) => response.json())
-            .then((newNews) => setNews((prevNews) => [...prevNews, ...newNews.articles]));
+            .then((newNews) => {
+                if (Array.isArray(newNews.articles)) {
+                    setNews((prevNews) => [...prevNews, ...newNews.articles])
+                } else {
+                    console.error('newNews.articles não é um array!');
+                }
+            });
     }, [])
 
     const settings = {
-        
+
         centerMode: false,
         dots: false,
         infinite: true,
@@ -64,7 +70,7 @@ const Carousel = () => {
                                     <button className="bg-gray-800 hover:bg-slate-500 font-extrabold p-3 rounded-3xl text-white">Veja mais</button>
                                 </Link>
                             </div>
-            
+
                         </div>
                     </div>
                 ))}
