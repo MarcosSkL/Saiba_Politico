@@ -11,7 +11,7 @@ const Carousel = () => {
 
     useEffect(() => {
 
-        const ENDPOINT = 'http://servicodados.ibge.gov.br/api/v3';
+        const ENDPOINT = 'https://servicodados.ibge.gov.br/api/v3';
         const URL = `${ENDPOINT}/noticias/?qtd=10`;
         fetch(URL)
             .then((response) => response.json())
