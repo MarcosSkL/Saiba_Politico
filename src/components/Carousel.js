@@ -11,13 +11,13 @@ const Carousel = () => {
 
     useEffect(() => {
 
-        const ENDPOINT = 'https://newsapi.org/v2';
-        const URL = `${ENDPOINT}/top-headlines?country=br&apiKey=f8b2ac41580f4c54b3a5e20de44fb2a3`;
+        const ENDPOINT = 'http://servicodados.ibge.gov.br/api/v3';
+        const URL = `${ENDPOINT}/noticias/?qtd=10`;
         fetch(URL)
             .then((response) => response.json())
             .then((newNews) => {
-                if (Array.isArray(newNews.articles)) {
-                    setNews((prevNews) => [...prevNews, ...newNews.articles])
+                if (Array.isArray(newNews.items)) {
+                    setNews((prevNews) => [...prevNews, ...newNews.items])
                 } else {
                     console.error('newNews.articles não é um array!');
                 }
@@ -54,13 +54,13 @@ const Carousel = () => {
             <Slider {...settings}>
                 {news.map((item) => (
                     <div key={item.id} className="p-2">
-                        <div className='text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-full h-96 rounded-2xl'>
+                        <div className='text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen h-96 rounded-2xl'>
                          
                             <div className='absolute bottom-[80px] text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen'>
-                                <h2 className='font-bold text-xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl me-60'>{item.title}</h2>
-                                <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.author}</p>
-                                <p className="shadow-black drop-shadow-2xl font-semibold sm:text-left sm:pr-4 sm:mb-6 overflow-hidden md:text-lg">{item.description}</p>
-                                <Link href={item.url} target="_blanck">
+                                <h2 className='font-bold text-xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl me-60'>{item.titulo}</h2>
+                                <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.editorias}</p>
+                                <p className="shadow-black drop-shadow-2xl font-semibold me-32 sm:text-left sm:pr-4 sm:mb-6 overflow-hidden md:text-lg">{item.introducao}</p>
+                                <Link href={item.link} target="_blanck">
                                     <button className="bg-gray-800 hover:bg-slate-500 font-extrabold p-3 rounded-3xl text-white">Veja mais</button>
                                 </Link>
                             </div>
