@@ -12,7 +12,7 @@ const Carousel = () => {
     useEffect(() => {
 
         const ENDPOINT = 'https://newsapi.org/v2';
-        const URL = `${ENDPOINT}/everything?q=brasil&language=pt&sortBy=publishedAt&apiKey=f8b2ac41580f4c54b3a5e20de44fb2a3`;
+        const URL = `${ENDPOINT}/top-headlines?country=br&apiKey=f8b2ac41580f4c54b3a5e20de44fb2a3`;
         fetch(URL)
             .then((response) => response.json())
             .then((newNews) => {
@@ -54,14 +54,8 @@ const Carousel = () => {
             <Slider {...settings}>
                 {news.map((item) => (
                     <div key={item.id} className="p-2">
-                        <div className='text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen h-screen rounded-2xl'>
-                            <img
-                                src={item.urlToImage}
-                                width={1920}
-                                height={1200}
-                                alt={item.title}
-                                className="object-cover rounded-2xl"
-                            />
+                        <div className='text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-full h-96 rounded-2xl'>
+                         
                             <div className='absolute bottom-[80px] text-white px-3 pl-[28px] sm:pl-[36px] md:pl-[48px] lg:pl-[60px] w-screen'>
                                 <h2 className='font-bold text-xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl me-60'>{item.title}</h2>
                                 <p className='sm:text-left sm:pr-4 sm:mb-6 text-ellipsis overflow-hidden md:text-lg'>{item.author}</p>
