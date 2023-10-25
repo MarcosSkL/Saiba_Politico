@@ -12,38 +12,18 @@ const Footer = () => {
           <div className=''>
             <Image src={Logo} width={90} height={90} alt='Logo do site' />
           </div>
-          <div className=''>
-            <span className='text-current hover:text-white pb-8 '>Desenvolvedores </span>
-          </div>
+
           <div className=''>
             <span className='text-current hover:text-white pb-8 '>©2023 SaibaPolitico</span>
           </div>
         </div>
-
+        <div className='text-center'>
+          <span className='text-current hover:text-white pb-8 '>Desenvolvedores:</span>
+        </div>
         <div className='flex gap-5 justify-center'>
-          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Marcos Bezerra 211142900-26</Link>
+          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Marcos Bezerra</Link>
             <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='https://www.instagram.com/markin36/'><FaInstagram className='w-4 h-4 cursor-pointer' /></Link>
             <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='https://github.com/MarcosSkL'><FaGithub className='w-4 h-4 cursor-pointer' /></Link></span>
-
-          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Brenno Alves 212142900-11</Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaInstagram className='w-4 h-4 cursor-pointer' /></Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaGithub className='w-4 h-4 cursor-pointer' /></Link></span>
-        </div>
-
-        <div className='flex gap-5 justify-center'>
-          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Eduardo José 221142900-38</Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaInstagram className='w-4 h-4 cursor-pointer' /></Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaGithub className='w-4 h-4 cursor-pointer' /></Link></span>
-
-          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Renato Ostemberg 211142900-27</Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaInstagram className='w-4 h-4 cursor-pointer' /></Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaGithub className='w-4 h-4 cursor-pointer' /></Link></span>
-        </div>
-
-        <div className='flex gap-5 justify-center'>
-          <span className='flex gap-1 items-center'><Link className='no-underline font-bold bg-clip-text text-transparent hover:text-white bg-gradient-to-r from-slate-200 to-green-400' target='_blank' rel="noreferrer" href="https://github.com/MarcosSkL">Felipe Vieira 221142900-38</Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaInstagram className='w-4 h-4 cursor-pointer' /></Link>
-            <Link className='text-gray-400 text-current hover:text-white' target='_blank' href='#'><FaGithub className='w-4 h-4 cursor-pointer' /></Link></span>
         </div>
 
         <div className='flex gap-3 justify-stretch'>
