@@ -8,7 +8,23 @@
 
 <img src="imagem.png" alt="Exemplo imagem">
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+Este projeto consiste em um site que utiliza a API pública da Câmara dos Deputados, para
+divulgar informações sobre os políticos e os gastos com o dinheiro público. O site apresenta
+gráficos interativos e dinâmicos com dados atualizados sobre as atividades legislativas. O
+objetivo do site é promover a transparência, a fiscalização e a participação cidadã na
+política brasileira.
+
+## 💼 Tecnologias utilizadas
+
+- Javascript;
+- Tailwind CSS;
+- Bootstrap;
+- NextJS;
+- Google Charts;
+- React-slick.
+
+---
+
 
 ## 💻 Pré-requisitos
 
