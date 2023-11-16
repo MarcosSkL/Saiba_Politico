@@ -21,7 +21,6 @@ política brasileira.
 - Bootstrap;
 - NextJS;
 - Google Charts;
-- React-slick.
 
 ---
 
