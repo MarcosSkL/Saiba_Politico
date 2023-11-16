@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="imagem.png" alt="Exemplo imagem">
+<img src="https://github.com/MarcosSkL/portifolioweb/blob/Main/public/assets/Projetos/Saiba_Politico.png?raw=true" alt="Exemplo imagem">
 
 Este projeto consiste em um site que utiliza a API pública da Câmara dos Deputados, para
 divulgar informações sobre os políticos e os gastos com o dinheiro público. O site apresenta
